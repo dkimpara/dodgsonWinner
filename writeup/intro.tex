@@ -1,0 +1,55 @@
+\section{Introduction}\label{sec:intro}
+
+    Suppose you are a theoretical computer scientist, wandering in the wilds
+of theory-land and you come upon a complexity class.
+It has not been seen before.
+It seems intuitive and natural.
+So you decide to submit it to the complexity zoo \citep{zoo}.
+But the worry is whether this class will turn out to capture the complexity
+of important real-world problems.
+Alternatively, is anyone or any problems going to come around to your new
+section of the zoo and join your party?
+After all, there are 545 classes and counting
+in the zoo!
+
+This was the case for the class \tp in the mid-1990s.
+\tp or \cc{P^{\np}_{\parallel}}, the class of
+languages decidable by a polynomial time Turing machine with parallel access to
+\np, was introduced in 1983 by \citep{PZ83}.
+The location of this class in the polynomial hierarchy is:
+
+\begin{gather*}
+    \sig{p}{1} \cup \pic{p}{1} \subseteq \tp \subseteq \Delta^{p}_2
+    \subseteq \sig{p}{2} \cap \pic{p}{2}, \text{or}\\
+    \np \cup \cc{coNP} \subseteq \cc{P}^{\np}_{\parallel}
+    \subseteq \cc{P}^{\np} \subseteq \np^{\np} \cap \cc{coNP}^{\np} \\
+\end{gather*}
+
+
+By the mid 1990s, the theoretical importance of \tp was recognized in complexity theory.
+Klaus W. Wagner established half a dozen characterizations of \tp \cite{wag90},
+several complete problems and a toolkit for establishing \tp-hardness.
+\citet{hem87} and \citet{ksw87} showed that \tp was equivalent to the class of
+problems that can be solved by $\mathcal{O}(\log(n))$ sequential Turing queries to \np.
+Furthermore, if \np contains some \tp-hard problem, then the polynomial hierarchy
+collapses to \np.
+However, these connections and complete problems
+lived in the pure theory section of the zoo and did not yet have the appeal of
+problems from ``real world" settings.
+
+Along comes the Dodgson winner problem, invented in 1876 by Charles Lutwidge
+Dodgson, better known under the pen name of Lewis Carroll.
+\citet{exactdodgson} proved that this problem was \tp-complete.
+This was the first ``real-world" problem proven complete for the class \tp.
+
+(talk about dodgson + history)
+
+The rest of this project presents the theory of and a practical algorithm for
+the Dodgson winner problem.
+We present slightly modified proof of completeness of
+the Dodgson winner problem based on new results for the class \tp.
+Then we present, implement, and examine a heurisitc algorithm
+that is self-knowingly correct for most practical instances of the problem.
+
+
+

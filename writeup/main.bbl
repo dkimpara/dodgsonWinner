@@ -1,0 +1,37 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Brot et~al.(2012)Brot, Muchnik, Goldenberg, and
+  Louzoun]{brot2012feedback}
+Hilla Brot, Lev Muchnik, Jacob Goldenberg, and Yoram Louzoun.
+\newblock Feedback between node and network dynamics can produce real-world
+  network properties.
+\newblock \emph{Physica A: Statistical Mechanics and its Applications},
+  391\penalty0 (24):\penalty0 6645--6654, 2012.
+
+\bibitem[Hagberg et~al.(2008)Hagberg, Swart, and S~Chult]{hagberg2008exploring}
+Aric Hagberg, Pieter Swart, and Daniel S~Chult.
+\newblock Exploring network structure, dynamics, and function using networkx.
+\newblock Technical report, Los Alamos National Lab.(LANL), Los Alamos, NM
+  (United States), 2008.
+
+\bibitem[Sayama and Yamanoi(2020)]{social-frag}
+Hiroki Sayama and Junichi Yamanoi.
+\newblock Beyond social fragmentation: Coexistence of cultural diversity and
+  structural connectivity is possible with social constituent diversity.
+\newblock In \emph{International Conference on Network Science}, pages
+  171--181. Springer, 2020.
+
+\bibitem[Sayama et~al.(2013)Sayama, Pestov, Schmidt, Bush, Wong, Yamanoi, and
+  Gross]{sayama2013modeling}
+Hiroki Sayama, Irene Pestov, Jeffrey Schmidt, Benjamin~James Bush, Chun Wong,
+  Junichi Yamanoi, and Thilo Gross.
+\newblock Modeling complex systems with adaptive networks.
+\newblock \emph{Computers \& Mathematics with Applications}, 65\penalty0
+  (10):\penalty0 1645--1664, 2013.
+
+\end{thebibliography}

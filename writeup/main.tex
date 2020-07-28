@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{pdfsync}
+\usepackage{fullpage}
+\usepackage{natbib}
+
+% custom %
+\usepackage{amsmath,amsthm,amssymb,xspace,amsfonts}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage[]{algorithm,algorithmic}
+\usepackage{fancyhdr}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{graphicx, subfig}
+\usepackage{caption}
+% \usepackage{algorithm, algorithmic}
+\usepackage{cleveref}
+\usepackage{thm-restate}
+\usepackage{listings, pdfpages}
+
+
+\newcommand{\cc}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\algprobm}[1]{{\sc #1}\xspace}
+\newcommand{\tp}{\cc{\Theta^{p}_2}}
+\newcommand{\np}{\cc{NP}}
+\newcommand{\sig}[2]{\cc{\Sigma^{#1}_{#2}}}
+\newcommand{\pic}[2]{\cc{\Pi^{#1}_{#2}}}
+
+
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+
+
+\begin{document}
+
+\title{Dodgson Winner Problem}
+ \author{Dhamma Kimpara}
+
+\maketitle
+
+
+\input{intro.tex}
+\input{prelims.tex}
+\input{theory.tex}
+\input{alg-theory.tex}
+\input{experiment.tex}
+\input{conclusion.tex}
+
+\newpage
+
+\bibliographystyle{plainnat}
+\bibliography{bib}
+
+\newpage
+
+\appendix
+
+\input{appendix.tex}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
