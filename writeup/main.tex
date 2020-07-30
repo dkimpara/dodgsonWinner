@@ -21,12 +21,14 @@
 
 \newcommand{\cc}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\algprobm}[1]{{\sc #1}\xspace}
-\newcommand{\tp}{\cc{\Theta^{p}_2}}
+
+\newcommand{\tp}{$\Theta^{p}_2$ }
 \newcommand{\np}{\cc{NP}}
 \newcommand{\sig}[2]{\cc{\Sigma^{#1}_{#2}}}
 \newcommand{\pic}[2]{\cc{\Pi^{#1}_{#2}}}
+\newcommand{\csat}{\algprobm{Comp-SAT}}
 
-
+\newcommand{\mred}{\le_m^P}
 
 \newcommand\tab[1][0.5cm]{\hspace*{#1}}
 
@@ -36,6 +38,12 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
 \newtheorem{assumption}{Assumption}
+\newtheorem{corollary}{Corollary}
+
+\newtheorem*{problem}{Decision Problem}
+
+\newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}
+
 
 
 \begin{document}

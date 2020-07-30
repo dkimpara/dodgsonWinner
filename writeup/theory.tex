@@ -1,2 +1,68 @@
 \section{The complexity of the Dodgson Winner Problem}
 
+\begin{theorem}
+    \algprobm{DodgsonWinner} $\in$ \tp.
+\end{theorem}
+
+\begin{claimproof}
+
+\end{claimproof}
+
+\begin{theorem}\ref{thm:dwin}
+    \algprobm{DodgsonWinner} is \tp- hard
+\end{theorem}
+
+    First we briefly outline the reduction from Comp-SAT to
+DodgsonWinner.
+Let us start with a \csat instance $<A,B>$, for each 3CNF $F$
+formula in $A$ and $B$, reduce $F$ into the corresponding instance of
+\algprobm{ThreeDimensionalMatching} (\algprobm{3DM}), which is possible because
+\algprobm{3DM} is \np-complete.
+Now, for each \algprobm{3DM} problem, we reduce it into an instance of DodgsonScore.
+Using a merger lemma, we will merge these into 2 elections, one for $A$
+and one for $B$, thus an instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
+Then, \algprobm{2ER} will be reduced to DodgsonWinner.
+Our reduction avoids needing to prove that \algprobm{2ER} is \tp-hard.
+
+A reference diagram is provided:
+
+\[\csat \le_{tt} \algprobm{3DM} \mred \algprobm{DodgsonScore} \rightarrow_{merge}
+\algprobm{2ER} \mred \algprobm{DodgsonScore}\]
+
+\subsection{Outline of relevant lemmas}
+
+\begin{lemma}{3.4} \label{lem:red1}
+
+\end{lemma}
+
+\begin{lemma}{3.5}
+\end{lemma}
+
+\begin{problem}{\algprobm{TwoElectionRanking} (\algprobm{2ER})}
+    
+\end{problem}
+
+\begin{lemma}
+    \algprobm{2ER} is \tp - hard.
+\end{lemma}
+
+\begin{lemma}
+{3.7}
+\end{lemma}
+
+\begin{problem}{\algprobm{ThreeDimensionalMatching} (\algprobm{3DM})}
+    \tab \textbf{Input:}
+    \tab \textbf{Decide:}
+\end{problem}
+
+\begin{problem}{\algprobm{Comp-3DM}}
+    \tab \textbf{Input:}
+    \tab \textbf{Decide:}
+\end{problem}
+
+\begin{claimproof}{Lemma \ref{lem:red1}}
+\end{claimproof}
+
+\begin{claimproof}{\ref{thm:dwin}}
+\end{claimproof}
+

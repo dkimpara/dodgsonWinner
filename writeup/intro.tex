@@ -7,27 +7,27 @@ It seems intuitive and natural.
 So you decide to submit it to the complexity zoo \citep{zoo}.
 But the worry is whether this class will turn out to capture the complexity
 of important real-world problems.
-Alternatively, is anyone or any problems going to come around to your new
+In other words, is anyone or any problems going to come around to your new
 section of the zoo and join your party?
 After all, there are 545 classes and counting
 in the zoo!
 
 This was the case for the class \tp in the mid-1990s.
-\tp or \cc{P^{\np}_{\parallel}}, the class of
+\tp  or \cc{P}$^{\np}_{\parallel}$, the class of
 languages decidable by a polynomial time Turing machine with parallel access to
 \np, was introduced in 1983 by \citep{PZ83}.
 The location of this class in the polynomial hierarchy is:
 
-\begin{gather*}
-    \sig{p}{1} \cup \pic{p}{1} \subseteq \tp \subseteq \Delta^{p}_2
-    \subseteq \sig{p}{2} \cap \pic{p}{2}, \text{or}\\
-    \np \cup \cc{coNP} \subseteq \cc{P}^{\np}_{\parallel}
-    \subseteq \cc{P}^{\np} \subseteq \np^{\np} \cap \cc{coNP}^{\np} \\
-\end{gather*}
+
+ %   $$\sig{p}{1} \cup \pic{p}{1} \subseteq \tp \subseteq \Delta^{p}_2
+ %   \subseteq \sig{p}{2} \cap \pic{p}{2},~~~\text{or}$$
+
+  %  $$\np \cup \cc{coNP} \subseteq \cc{P}^{\np}_{\parallel}
+   % \subseteq \cc{P}^{\np} \subseteq \np^{\np} \cap \cc{coNP}^{\np}$$ \\
 
 
 By the mid 1990s, the theoretical importance of \tp was recognized in complexity theory.
-Klaus W. Wagner established half a dozen characterizations of \tp \cite{wag90},
+Klaus W. Wagner established half a dozen characterizations of \tp  \citep{wag90},
 several complete problems and a toolkit for establishing \tp-hardness.
 \citet{hem87} and \citet{ksw87} showed that \tp was equivalent to the class of
 problems that can be solved by $\mathcal{O}(\log(n))$ sequential Turing queries to \np.
@@ -37,18 +37,45 @@ However, these connections and complete problems
 lived in the pure theory section of the zoo and did not yet have the appeal of
 problems from ``real world" settings.
 
-Along comes the Dodgson winner problem, invented in 1876 by Charles Lutwidge
+Along came the Dodgson winner problem, invented in 1876 by Charles Lutwidge
 Dodgson, better known under the pen name of Lewis Carroll.
 \citet{exactdodgson} proved that this problem was \tp-complete.
 This was the first ``real-world" problem proven complete for the class \tp.
 
-(talk about dodgson + history)
+Dodgson's election system takes the following form.
+An election is a finite number of voters, who each cast a linear order
+over a common finite set of candidates.
+Note that linear orders are ``tie-free".
+The winner is determined by whichever candidate is closest to being a Cordorcet
+winner, a criteria used by other election systems.
+A Condorcet winner is a candidate $a$ who for every other candidate $b$, is
+preferred to $b$ by strictly more than half of the voters.
+We naturally want election systems to be Condorcet-consistent, i.e. the system
+has the property where if $a$ is a Condorcet winner, $a$ is the one and only
+winner in the election.
+Dodgson's election system is Condorcet-consistent \citep{handbookcss}
+
+The winner(s) in a Dodgson election is defined as the candidate(s) who are
+the ``closest" to being Condorcet winners.
+The winners are the candidates that have the lowest Dodgson score.
+The Dodgson score of a candidate $a$ is the smallest number of
+sequential exchanges of adjacent candidates in preference orders such that
+after those exchanges $a$ is a Cordorcet winner.
+
+Note that it is remarkable that we find \tp-complete problems that were defined
+100 years before complexity theory itself existed.
+Dodgson winner is also extremely natural when compared with other complete
+problems in this class such as determining if the maximum size clique in a
+graph is of odd size (odd-max-clique).
+In this project we will use \algprobm{Comp-SAT}, %todo format
+which was recently shown to be complete for this class \citep{compsat}
+
 
 The rest of this project presents the theory of and a practical algorithm for
 the Dodgson winner problem.
 We present slightly modified proof of completeness of
 the Dodgson winner problem based on new results for the class \tp.
-Then we present, implement, and examine a heurisitc algorithm
+Then we present, implement, and examine a heuristic algorithm
 that is self-knowingly correct for most practical instances of the problem.
 
 

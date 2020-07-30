@@ -2,7 +2,7 @@
 
 \subsection{Problem Setting}
 
-\begin{defn}{Election}
+\begin{defn}{Dodgson Election}
 
 \end{defn}
 
@@ -10,7 +10,41 @@
 
 \end{defn}
 
-\begin{defn}{Dodgson Winner Problem}
+\begin{defn}{Dodgson Score}\label{def:dscore}
 \end{defn}
 
+\begin{problem}{\algprobm{DodgsonWinner}} \\
+    \tab Instance: A Dodgson Election and Candidate $\langle C,c,V \rangle$ \\
+    \tab Decide: Is $c$ a winner of the election?
+    In other words, does $c$ have the minimum Dodgson Score in the election?
+
+\end{problem}
+
+\begin{problem}{\algprobm{DodgsonScore}} \\
+    \tab \textbf{Instance:} $k \in \mathbb{N}$,
+        A Dodgson Election and Candidate $\langle C,c,V \rangle$ \\
+    \tab \textbf{Decide:} Is the Dodgson Score of candidate $c$ less than or equal to $k$?
+\end{problem}
+
+\begin{problem}{\csat} \citep{compsat}\\
+    \tab Instance: A pair $\langle A,B \rangle$ of sets of 3CNF formulas.\\
+    \tab Decide: Is the number of satisfiable formulas in $A$
+    greater than the number of satisfiable formulas in $B$.
+\end{problem}
+
 \subsection{Complexity Classes and Definitions}
+
+\begin{defn}{\tp}
+
+\end{defn}
+
+\begin{corollary}
+    If \algprobm{DodgsonWinner} is \np-complete then \cc{PH} = \np.
+\end{corollary}
+
+\begin{theorem} \citep{compsat}
+    \csat is \tp- complete.
+\end{theorem}
+
+
+
