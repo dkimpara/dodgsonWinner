@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -8,6 +8,15 @@
 \bibitem[Aaronson et~al.(2005)Aaronson, Kuperberg, and Granade]{zoo}
 Scott Aaronson, Greg Kuperberg, and Christopher Granade.
 \newblock The complexity zoo, 2005.
+
+\bibitem[Bartholdi et~al.(1989)Bartholdi, Tovey, and Trick]{bartholdiVoting}
+J.~Bartholdi, C.~A. Tovey, and M.~A. Trick.
+\newblock Voting schemes for which it can be difficult to tell who won the
+  election.
+\newblock \emph{Social Choice and Welfare}, 6\penalty0 (2):\penalty0 157--165,
+  1989.
+\newblock ISSN 01761714, 1432217X.
+\newblock URL \url{http://www.jstor.org/stable/41105913}.
 
 \bibitem[Brandt et~al.(2016)Brandt, Conitzer, Endriss, Lang, and
   Procaccia]{handbookcss}

@@ -1,20 +1,26 @@
 \section{The complexity of the Dodgson Winner Problem}
+Our results largely follow the proof in \citet{exactdodgson}, except instead of
+using a technical lemma by \citet{wag90}, we instead begin the reduction
+with the recent result that \algprobm{Comp-SAT} is \tp-complete \citep{compsat}.
 
-\begin{theorem}
-    \algprobm{DodgsonWinner} $\in$ \tp.
+We first state the main result of this section and a big-picture corollary
+concerning the polynomial hierarchy.
+
+\begin{theorem}\label{thm:dwin}
+    \algprobm{DodgsonWinner} is \tp-complete
 \end{theorem}
 
-\begin{claimproof}
+It follows that though \algprobm{DodgsonWinner} is \np-hard \citep{bartholdiVoting},
+it cannot be \np-complete unless the polynomial hierarchy collapses.
 
-\end{claimproof}
+\begin{corollary}
+    If \algprobm{DodgsonWinner} is \np-complete then \cc{PH} = \np.
+\end{corollary}
 
-\begin{theorem}\ref{thm:dwin}
-    \algprobm{DodgsonWinner} is \tp- hard
-\end{theorem}
-
+\subsection{Outline of Proof of Theorem \ref{thm:dwin}}
     First we briefly outline the reduction from Comp-SAT to
 DodgsonWinner.
-Let us start with a \csat instance $<A,B>$, for each 3CNF $F$
+Let us start with a \csat instance $\langle A,B \rangle$, for each 3CNF $F$
 formula in $A$ and $B$, reduce $F$ into the corresponding instance of
 \algprobm{ThreeDimensionalMatching} (\algprobm{3DM}), which is possible because
 \algprobm{3DM} is \np-complete.
@@ -22,47 +28,97 @@ Now, for each \algprobm{3DM} problem, we reduce it into an instance of DodgsonSc
 Using a merger lemma, we will merge these into 2 elections, one for $A$
 and one for $B$, thus an instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
 Then, \algprobm{2ER} will be reduced to DodgsonWinner.
-Our reduction avoids needing to prove that \algprobm{2ER} is \tp-hard.
 
 A reference diagram is provided:
 
-\[\csat \le_{tt} \algprobm{3DM} \mred \algprobm{DodgsonScore} \rightarrow_{merge}
-\algprobm{2ER} \mred \algprobm{DodgsonScore}\]
+\[\text{\csat} \mred \text{\algprobm{Comp-3DM}} \mred
+\text{\algprobm{Comp-DodgsonScore}} \mred
+\text{\algprobm{2ER}} \mred \text{\algprobm{DodgsonWinner}}\]
+
+Now we need to show membership in \tp.
+\begin{theorem} \label{thm:intp}
+    \algprobm{DodgsonWinner} $\in$ \tp. \\
+\end{theorem}
+
+\begin{claimproof}
+    Ask in parallel all the \algprobm{DodgsonScore} queries,
+    one for each candidate in $C$.
+    Each query is an \np query since \algprobm{DodgsonScore} is \np-complete by
+    the second reduction outlined above (lemma \ref{lem:red1}).
+    We now have the exact Dodgson Score for each candidate.
+    It is easy to decide
+    whether or not the given candidate $c$ ties-or-defeats all other candidates in
+    the election (find the max of the scores and compare the $c$'s score to
+    the max $\sim\mathcal{O}(n)$).
+\end{claimproof}
 
 \subsection{Outline of relevant lemmas}
 
-\begin{lemma}{3.4} \label{lem:red1}
-
+\begin{lemma} \label{lem:red1}
+    There exists an \np-complete problem $A$ and a polynomial-time
+    computable function $f$ that reduces $A$ to \dscore in such
+    a way that, $\forall x \in \Sigma^*,
+    f(x) = \langle \langle C,c,V \rangle, k\rangle $
+    is an instance of \dscore with an odd number of voters and
+    \begin{enumerate}
+        \item if $x\in A$ then $Score(\dtriple) = k$, and
+        \item if $x\notin A$ then $Score(\dtriple) = k+1$.
+    \end{enumerate}
 \end{lemma}
 
-\begin{lemma}{3.5}
+\begin{lemma} \label{lem:merge1}
+    There exists a polynomial-time computable function
+    $DodgsonSum$ such that $\forall k$ and for all\\
+    $\dtripnum{1},\dtripnum{2}, \dots, \dtripnum{k}$ satisfying
+    $||V_j||$ is odd for all $ j$, it holds that
+    \[DodgsonSum(\langle \dtripnum{1},\dtripnum{2}, \dots,
+    \dtripnum{k}) \rangle)\]
+    is a Dodgson triple having an odd number of voters and such that
+    \[\sum_j Score(\dtripnum{j}) =
+    Score(DodgsonSum(\langle \dtripnum{1},\dtripnum{2}, \dots,
+    \dtripnum{k}) \rangle)\]
 \end{lemma}
 
-\begin{problem}{\algprobm{TwoElectionRanking} (\algprobm{2ER})}
-    
+Theorem \ref{thm:csat}, Lemma \ref{lem:red1} and Lemma
+\ref{lem:merge1}, establish the \tp-hardness of a problem related to
+\algprobm{DodgsonWinner}. We now define this decision problem:
+
+\begin{problem}{\algprobm{TwoElectionRanking} (\algprobm{2ER})} \\
+    \tab Instance: A pair of Dodgson triples
+$\langle \langle C,c,V \rangle, \langle D,d,W \rangle \rangle$
+both having an odd number of voters such that $c\neq d$.\\
+    \tab Decide: Is 
+$Score(\langle C,c,V \rangle)\leq Score(\langle D,d,W \rangle)$?
 \end{problem}
 
-\begin{lemma}
-    \algprobm{2ER} is \tp - hard.
+\begin{lemma} \label{lem:2er}
+    \algprobm{2ER} is \tp-hard.
 \end{lemma}
 
-\begin{lemma}
-{3.7}
+We now need to make the results so far applicable to 
+\algprobm{DodgsonWinner}, so we need another merger lemma to
+merge two elections into a single election.
+
+\begin{lemma} \label{lem:merge2}
+There exists a polynomial-time computable function $Merge$
+    such that, for all Dodgson triples,
+    $\langle C,c,V \rangle$ and $\langle D,d,W \rangle$ 
+    for which $c\neq d$ and both having an odd number of voters,
+    there exist $\hat{C}$ and $\hat{V}$ such that
+    \begin{enumerate}
+        \item $Merge(\langle C,c,V \rangle, \langle D,d,W \rangle)$
+        is an instance of \algprobm{DogsonWinner}, 
+        \item $Merge(\langle C,c,V \rangle, \langle D,d,W \rangle)
+        = \langle \hat{C},c,\hat{V} \rangle$,
+        \item $Score(\langle \hat{C},c,\hat{V} \rangle) =
+        Score(\langle C,c,V \rangle) + 1$,
+        \item $Score(\langle \hat{C},d,\hat{V} \rangle) =
+        Score(\langle D,d,W \rangle) + 1$ and,
+        \item for each $e \in \hat{C}\setminus \{c,d\}$, 
+        $Score(\langle \hat{C},c,\hat{V} \rangle) < 
+        Score(\langle \hat{C},e,\hat{V} \rangle)$
+    \end{enumerate}
 \end{lemma}
 
-\begin{problem}{\algprobm{ThreeDimensionalMatching} (\algprobm{3DM})}
-    \tab \textbf{Input:}
-    \tab \textbf{Decide:}
-\end{problem}
 
-\begin{problem}{\algprobm{Comp-3DM}}
-    \tab \textbf{Input:}
-    \tab \textbf{Decide:}
-\end{problem}
-
-\begin{claimproof}{Lemma \ref{lem:red1}}
-\end{claimproof}
-
-\begin{claimproof}{\ref{thm:dwin}}
-\end{claimproof}
 

@@ -17,18 +17,27 @@
 \usepackage{cleveref}
 \usepackage{thm-restate}
 \usepackage{listings, pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{subfiles}
 
 
 \newcommand{\cc}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\algprobm}[1]{{\sc #1}\xspace}
 
-\newcommand{\tp}{$\Theta^{p}_2$ }
+\newcommand{\tp}{$\Theta^{p}_2$}
 \newcommand{\np}{\cc{NP}}
 \newcommand{\sig}[2]{\cc{\Sigma^{#1}_{#2}}}
 \newcommand{\pic}[2]{\cc{\Pi^{#1}_{#2}}}
 \newcommand{\csat}{\algprobm{Comp-SAT}}
+\newcommand{\dscore}{\algprobm{DodgsonScore}}
+\newcommand{\dwin}{\algprobm{DodgsonWinner}}
 
-\newcommand{\mred}{\le_m^P}
+
+
+\newcommand{\dtriple}{\langle C,c,V \rangle}
+\newcommand{\dtripnum}[1]{\langle C_{#1},c_{#1},V_{#1} \rangle}
+
+\newcommand{\mred}{\le_m^p}
 
 \newcommand\tab[1][0.5cm]{\hspace*{#1}}
 
@@ -57,7 +66,10 @@
 \input{intro.tex}
 \input{prelims.tex}
 \input{theory.tex}
+\input{pfLem.tex}
 \input{alg-theory.tex}
+\input{fpt.tex}
+\input{heuristic.tex}
 \input{experiment.tex}
 \input{conclusion.tex}
 

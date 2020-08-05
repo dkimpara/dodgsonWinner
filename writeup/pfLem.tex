@@ -1,0 +1,98 @@
+\subsection{Proof of select lemmas}
+
+%\begin{problem}{\algprobm{Comp-3DM}}
+%    \tab \textbf{Input:}
+%    \tab \textbf{Decide:}
+%\end{problem}
+
+\begin{claimproof}{Lemma \ref{lem:red1} or
+                    \algprobm{3DM} $\mred$ \algprobm{DodgsonScore}}\\
+    Our reduction differs from \citet{bartholdiVoting}
+    in that our reduction has additional properties that are required
+    by the lemma.
+    We will reduce from \algprobm{ThreeDimensionalMatching} to \dscore:
+
+\begin{problem}{\algprobm{ThreeDimensionalMatching} (\algprobm{3DM})}\\
+    \tab \textbf{Input:} Sets $M,W,X,Y$, where $M\subseteq W \times
+    X \times Y$ and $W,X,Y$ are disjoint, nonempty sets having the
+    same number of elements.\\
+    \tab \textbf{Decide:} Does $M$ contain a matching, i.e. a subset
+    $M' \subseteq M$ such that $\mathnormal{M'} = \mathnormal{W}$
+    and no two elements of $M'$ agree in any coordinate?
+\end{problem}
+
+
+\end{claimproof}
+
+\begin{claimproof}{Lemma \ref{lem:2er}}\\
+    We will reduce from \csat to \algprobm{2ER}.
+    Let $\langle A,B \rangle$ be a \csat instance.
+
+    For each 3CNF formula $x \in A$ or $B$, reduce $x$ into
+    the corresponding \algprobm{3DM} instance $x'$ and add $x'$
+    to $A'$ or $B'$ if $x\in A$ or $x \in B$, respectively.
+    In effect we are reducing \csat to an instance of
+    \algprobm{Comp-3DM}, $\langle A', B' \rangle$.
+    It is easy to see that solving $\langle A', B' \rangle$
+    solves $\langle A, B \rangle$.
+
+    Now we perform a similar reduction from \algprobm{Comp-3DM}
+    to \algprobm{Comp-DodgsonScore}.
+    For each $x' \in A'$ or $B'$, use the function in
+    Lemma \ref{lem:red1} to reduce $x'$ into the corresponding
+    \dscore instance $\dtriple$ and add $\dtriple$
+    to $A''$ or $B''$ if $x'\in A'$ or $x' \in B'$, respectively.
+    It is similarly easy to see that solving $\langle A'', B'' \rangle$
+    solves $\langle A', B' \rangle$.
+    If $x' \in$ \algprobm{Comp-3DM} then by Lemma \ref{lem:red1}
+    $Score(\dtriple) = k$ and thus \dscore on $\dtriple$ returns yes.
+    If $x' \notin$ \algprobm{Comp-3DM} then
+    $Score(\dtriple) = k+1$ and \dscore on $\dtriple$ returns no.
+
+    Now we reduce from \algprobm{Comp-DodgsonScore} to \algprobm{2ER}
+    using Lemma \ref{lem:merge1}.
+    First note that the direction of the inequality of the decision problem
+    changes in this reduction by the nature of Lemma \ref{lem:red1}.
+    Now to begin the reduction, we merge all the Dodgson elections
+    in $A'', B''$ into $\langle C,c,V \rangle$ and $\langle D,d,W \rangle$,
+    respectively.
+    This is done using the $DodgsonSum$ function in \ref{lem:merge1}.
+    For example if $A'' = \dtripnum{1},\dtripnum{2}, \dots, \dtripnum{k}$
+    then
+
+    \[\dtriple = DodgsonSum(\langle \dtripnum{1},\dtripnum{2}, \dots,
+    \dtripnum{k}) \rangle)\]
+
+    and
+
+    \[\sum_j Score(\dtripnum{j}) =
+    Score(\dtriple).\]
+
+    Now $\langle A'', B'' \rangle$ being true is equivalent to
+    the number of satisfied \dscore instances in $A''$ being greater than
+    that of $B''$.
+    This again is equivalent to the sum of the Dodgson
+    scores of $A''$ being less than that of $B''$.
+    Thus using the reduction of $\langle A'', B'' \rangle$ outlined above,
+    If $Score(\langle C,c,V \rangle)\leq Score(\langle D,d,W \rangle)$ is true,
+    then $\langle A'', B'' \rangle$ is true and similarly for the false case.
+    Hence we have shown a reduction from \algprobm{Comp-DodgsonScore} to
+    \algprobm{2ER}.
+
+    Combining the many-one reductions above, we have shown that:
+
+    \[\text{\csat} \mred \text{\algprobm{Comp-3DM}} \mred
+    \text{\algprobm{Comp-DodgsonScore}} \mred
+    \text{\algprobm{2ER}}.\]
+
+    So by Theorem \ref{thm:csat}, \algprobm{2ER} is \tp-hard and the
+    Lemma is proved.
+\end{claimproof}
+
+\subsection{Proof that \algprobm{DodgsonWinner} is \tp-complete.}
+\begin{claimproof}{Theorem \ref{thm:dwin}}\\
+    By Theorem \ref{thm:intp}, \dwin $\in$ \tp.
+    We now show that \algprobm{2ER} $\mred$ \dwin.
+
+
+\end{claimproof}

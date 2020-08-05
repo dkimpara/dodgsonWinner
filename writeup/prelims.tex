@@ -2,28 +2,44 @@
 
 \subsection{Problem Setting}
 
-\begin{defn}{Dodgson Election}
+\begin{defn}{Dodgson Triple}\\
+    A triple, $\langle C, c, V \rangle$, where $C$ is the set of candidates
+    $1, \dots , m$, a candidate $c \in C$, and a set of $n$ strict
+    (ie. irreflexive and anti-symmetric) preference orders,
+    one per voter, over all candidates in $C$.
+\end{defn}
+
+
+
+\begin{defn}{Condorcet Winner}\\
+    In an election, with a set of candidates $C$ and $n$ votes or strict preference
+    orders $V$, a candidate $a \in C$ is a Condorcet Winner if for every other
+    candidate $b$, $a \succ b$ by strictly more than half of the voters.
 
 \end{defn}
 
-\begin{defn}{Condorcet Winner}
-
+\begin{defn}{Dodgson Score}\label{def:dscore}\\
+    First define a switch as an exchange of two adjacent preferences in the
+    preference order of one voter.
+    Then, the Dodgson Score of a candidate is the smallest number of sequential
+    switches needed to make the candidate a
+    Condorcet winner.
+    The Dodgson Score of any Cordorcet Winner is 0.
+    We denote the Dodgson score of a Dodgson triple as $Score(\dtriple)$
 \end{defn}
 
-\begin{defn}{Dodgson Score}\label{def:dscore}
-\end{defn}
+\begin{problem}{\algprobm{DodgsonScore}} \\
+    \tab \textbf{Instance:} $k \in \mathbb{N}$.
+        A Dodgson Election and Candidate $\langle C,c,V \rangle$. \\
+    \tab \textbf{Decide:} Is the Dodgson Score of candidate $c$ less than or
+        equal to $k$?
+\end{problem}
 
 \begin{problem}{\algprobm{DodgsonWinner}} \\
     \tab Instance: A Dodgson Election and Candidate $\langle C,c,V \rangle$ \\
     \tab Decide: Is $c$ a winner of the election?
     In other words, does $c$ have the minimum Dodgson Score in the election?
 
-\end{problem}
-
-\begin{problem}{\algprobm{DodgsonScore}} \\
-    \tab \textbf{Instance:} $k \in \mathbb{N}$,
-        A Dodgson Election and Candidate $\langle C,c,V \rangle$ \\
-    \tab \textbf{Decide:} Is the Dodgson Score of candidate $c$ less than or equal to $k$?
 \end{problem}
 
 \begin{problem}{\csat} \citep{compsat}\\
@@ -34,16 +50,17 @@
 
 \subsection{Complexity Classes and Definitions}
 
-\begin{defn}{\tp}
-
+\begin{defn}{\tp:} \\
+    The class of problems solvable with polynomial-time parallel access to an
+    \np oracle.
+    This is equivalent to $\mathcal{O}(\log(n))$ sequential queries to an \np
+    oracle \citep{hem87, ksw87}.
 \end{defn}
 
-\begin{corollary}
-    If \algprobm{DodgsonWinner} is \np-complete then \cc{PH} = \np.
-\end{corollary}
 
-\begin{theorem} \citep{compsat}
-    \csat is \tp- complete.
+
+\begin{theorem}\label{thm:csat} \citep{compsat}
+    \csat is \tp-complete.
 \end{theorem}
 
 
