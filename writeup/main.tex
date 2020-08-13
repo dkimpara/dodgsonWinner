@@ -7,17 +7,18 @@
 \usepackage{amsmath,amsthm,amssymb,xspace,amsfonts}
 \usepackage{mathtools}
 \usepackage{xcolor}
-\usepackage[]{algorithm,algorithmic}
+\usepackage[]{algorithm}
 \usepackage{fancyhdr}
 \usepackage{bbm}
 \usepackage{enumitem}
 \usepackage{graphicx, subfig}
 \usepackage{caption}
-% \usepackage{algorithm, algorithmic}
+
 \usepackage{cleveref}
 \usepackage{thm-restate}
 \usepackage{listings, pdfpages}
 \usepackage[T1]{fontenc}
+\usepackage{algpseudocode}
 \usepackage{subfiles}
 
 
@@ -32,10 +33,12 @@
 \newcommand{\dscore}{\algprobm{DodgsonScore}}
 \newcommand{\dwin}{\algprobm{DodgsonWinner}}
 
-
+\newcommand{\gscore}{\texttt{GreedyScore}}
+\newcommand{\gwin}{\texttt{GreedyWinner}}
 
 \newcommand{\dtriple}{\langle C,c,V \rangle}
 \newcommand{\dtripnum}[1]{\langle C_{#1},c_{#1},V_{#1} \rangle}
+\newcommand{\htrip}[1]{\langle \hat{C},#1,\hat{V} \rangle}
 
 \newcommand{\mred}{\le_m^p}
 
@@ -48,12 +51,40 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{assumption}{Assumption}
 \newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
 
 \newtheorem*{problem}{Decision Problem}
 
 \newenvironment{claimproof}[1]{\par\noindent\underline{Proof:}\space#1}
 
+\newenvironment{pfsketch}[1]{\par\noindent\underline{Proof sketch:}\space#1}
 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+
+\newlength\myindent
+\setlength\myindent{2em}
+\newcommand\bindent{%
+	\begingroup
+	\setlength{\itemindent}{\myindent}
+	\addtolength{\algorithmicindent}{\myindent}
+}
+\newcommand\eindent{\endgroup}
 
 \begin{document}
 

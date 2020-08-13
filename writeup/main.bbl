@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,6 +42,13 @@ Edith Hemaspaandra, Lane~A. Hemaspaandra, and J{\"{o}}rg Rothe.
   system is complete for parallel access to {NP}.
 \newblock \emph{CoRR}, cs.CC/9907036, 1999.
 \newblock URL \url{https://arxiv.org/abs/cs/9907036}.
+
+\bibitem[Homan and Hemaspaandra(2005)]{heuristic}
+Christopher~M. Homan and Lane~A. Hemaspaandra.
+\newblock Guarantees for the success frequency of an algorithm for finding
+  dodgson-election winners.
+\newblock \emph{CoRR}, abs/cs/0509061, 2005.
+\newblock URL \url{http://arxiv.org/abs/cs/0509061}.
 
 \bibitem[{K\"obler, Johannes} et~al.(1987){K\"obler, Johannes}, {Sch\"oning,
   Uwe}, and {Wagner, Klaus W.}]{ksw87}

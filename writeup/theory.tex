@@ -2,6 +2,10 @@
 Our results largely follow the proof in \citet{exactdodgson}, except instead of
 using a technical lemma by \citet{wag90}, we instead begin the reduction
 with the recent result that \algprobm{Comp-SAT} is \tp-complete \citep{compsat}.
+All lemmas and theorems in this section
+unless cited otherwise are from \citet{exactdodgson}.
+We have omitted proofs of technical lemmas and have used our own proof of Lemma
+\ref{lem:2er}, which is the main hardness proof.
 
 We first state the main result of this section and a big-picture corollary
 concerning the polynomial hierarchy.
@@ -20,14 +24,17 @@ it cannot be \np-complete unless the polynomial hierarchy collapses.
 \subsection{Outline of Proof of Theorem \ref{thm:dwin}}
     First we briefly outline the reduction from Comp-SAT to
 DodgsonWinner.
-Let us start with a \csat instance $\langle A,B \rangle$, for each 3CNF $F$
-formula in $A$ and $B$, reduce $F$ into the corresponding instance of
+Let us start with a \csat instance $\langle A,B \rangle$, for each 3CNF
+formula $x$ in $A$ and $B$, reduce $x$ into the corresponding instance of
 \algprobm{ThreeDimensionalMatching} (\algprobm{3DM}), which is possible because
 \algprobm{3DM} is \np-complete.
-Now, for each \algprobm{3DM} problem, we reduce it into an instance of DodgsonScore.
-Using a merger lemma, we will merge these into 2 elections, one for $A$
+Now, for each \algprobm{3DM} problem, we reduce it into an instance of
+\dscore.
+Using a merger lemma, we will merge these into two elections, one for $A$
 and one for $B$, thus an instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
-Then, \algprobm{2ER} will be reduced to DodgsonWinner.
+Then \algprobm{2ER} will be reduced to DodgsonWinner.
+For the formal proof we will use the problems \algprobm{Comp-3DM} and
+\algprobm{Comp-DodgsonScore} which are similar to \csat.
 
 A reference diagram is provided:
 
@@ -40,7 +47,7 @@ Now we need to show membership in \tp.
     \algprobm{DodgsonWinner} $\in$ \tp. \\
 \end{theorem}
 
-\begin{claimproof}
+\begin{proof}
     Ask in parallel all the \algprobm{DodgsonScore} queries,
     one for each candidate in $C$.
     Each query is an \np query since \algprobm{DodgsonScore} is \np-complete by
@@ -50,7 +57,7 @@ Now we need to show membership in \tp.
     whether or not the given candidate $c$ ties-or-defeats all other candidates in
     the election (find the max of the scores and compare the $c$'s score to
     the max $\sim\mathcal{O}(n)$).
-\end{claimproof}
+\end{proof}
 
 \subsection{Outline of relevant lemmas}
 

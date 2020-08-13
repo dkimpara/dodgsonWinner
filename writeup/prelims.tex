@@ -42,10 +42,17 @@
 
 \end{problem}
 
+\begin{problem}{\algprobm{Comp-M}} \\
+    \tab Instance: A pair $\langle A,B \rangle$ of sets of \np-hard decision problems
+    in $M$.\\
+    \tab Decide: Is the number of yes-instances in $A$
+    greater than or equal to the number of yes-instances in $B$.
+\end{problem}
+
 \begin{problem}{\csat} \citep{compsat}\\
     \tab Instance: A pair $\langle A,B \rangle$ of sets of 3CNF formulas.\\
     \tab Decide: Is the number of satisfiable formulas in $A$
-    greater than the number of satisfiable formulas in $B$.
+    greater than or equal to the number of satisfiable formulas in $B$.
 \end{problem}
 
 \subsection{Complexity Classes and Definitions}
@@ -56,8 +63,6 @@
     This is equivalent to $\mathcal{O}(\log(n))$ sequential queries to an \np
     oracle \citep{hem87, ksw87}.
 \end{defn}
-
-
 
 \begin{theorem}\label{thm:csat} \citep{compsat}
     \csat is \tp-complete.

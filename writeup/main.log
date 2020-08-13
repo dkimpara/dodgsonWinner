@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.8.3)  5 AUG 2020 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.8.3)  13 AUG 2020 13:53
 entering extended mode
 **./main.tex
 (main.tex
@@ -193,26 +193,18 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \@float@every@algorithm=\toks28
 \c@algorithm=\count106
 )
-(C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithmic.sty
-Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count107
-\c@ALC@line=\count108
-\c@ALC@rem=\count109
-\c@ALC@depth=\count110
-\ALC@tlm=\skip56
-\algorithmicindent=\skip57
-) (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
+(C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip58
-\f@nch@O@elh=\skip59
-\f@nch@O@erh=\skip60
-\f@nch@O@olh=\skip61
-\f@nch@O@orh=\skip62
-\f@nch@O@elf=\skip63
-\f@nch@O@erf=\skip64
-\f@nch@O@olf=\skip65
-\f@nch@O@orf=\skip66
+\f@nch@headwidth=\skip56
+\f@nch@O@elh=\skip57
+\f@nch@O@erh=\skip58
+\f@nch@O@olh=\skip59
+\f@nch@O@orh=\skip60
+\f@nch@O@elf=\skip61
+\f@nch@O@erf=\skip62
+\f@nch@O@olf=\skip63
+\f@nch@O@orf=\skip64
 )
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
@@ -223,11 +215,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 )
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip67
+\labelindent=\skip65
 \enit@outerparindent=\dimen121
 \enit@toks=\toks29
 \enit@inbox=\box30
-\enitdp@description=\count111
+\enitdp@description=\count107
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -263,22 +255,22 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@parindent=\dimen129
 \caption@hangindent=\dimen130
 )
-\c@ContinuedFloat=\count112
+\c@ContinuedFloat=\count108
 Package caption Info: float package is loaded.
 )
-\c@KVtest=\count113
-\sf@farskip=\skip68
+\c@KVtest=\count109
+\sf@farskip=\skip66
 \sf@captopadj=\dimen131
-\sf@capskip=\skip69
-\sf@nearskip=\skip70
-\c@subfigure=\count114
-\c@subfigure@save=\count115
-\c@lofdepth=\count116
-\c@subtable=\count117
-\c@subtable@save=\count118
-\c@lotdepth=\count119
-\sf@top=\skip71
-\sf@bottom=\skip72
+\sf@capskip=\skip67
+\sf@nearskip=\skip68
+\c@subfigure=\count110
+\c@subfigure@save=\count111
+\c@lofdepth=\count112
+\c@subtable=\count113
+\c@subtable@save=\count114
+\c@lotdepth=\count115
+\sf@top=\skip69
+\sf@bottom=\skip70
 )
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
@@ -291,7 +283,7 @@ Package: thm-restate 2014/04/21 v66
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\thmtools\thmtools.sty
 Package: thmtools 2014/04/21 v66
 \thmt@toks=\toks30
-\c@thmt@dummyctr=\count120
+\c@thmt@dummyctr=\count116
 
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\thmtools\thm-patch.sty
 Package: thm-patch 2014/04/21 v66
@@ -343,23 +335,23 @@ Package: thm-listof 2014/04/21 v66
 Package: thm-amsthm 2014/04/21 v66
 \thmt@style@headstyle=\toks32
 ))) (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
-\lst@mode=\count121
+\lst@mode=\count117
 \lst@gtempboxa=\box31
 \lst@token=\toks33
-\lst@length=\count122
+\lst@length=\count118
 \lst@currlwidth=\dimen132
-\lst@column=\count123
-\lst@pos=\count124
+\lst@column=\count119
+\lst@pos=\count120
 \lst@lostspace=\dimen133
 \lst@width=\dimen134
-\lst@newlines=\count125
-\lst@lineno=\count126
+\lst@newlines=\count121
+\lst@lineno=\count122
 \lst@maxwidth=\dimen135
 
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count127
-\lst@skipnumbers=\count128
+\c@lstnumber=\count123
+\lst@skipnumbers=\count124
 \lst@framebox=\box32
 )
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
@@ -390,9 +382,9 @@ File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box33
 \AM@global@opts=\toks34
-\AM@pagecnt=\count129
+\AM@pagecnt=\count125
 \AM@toc@title=\toks35
-\c@AM@survey=\count130
+\c@AM@survey=\count126
 \AM@templatesizebox=\box34
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
@@ -402,40 +394,63 @@ Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.sty
+(C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithmicx\algpseudocode
+.sty
+Package: algpseudocode 
+
+(C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithmicx\algorithmicx.
+sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count127
+\c@ALG@rem=\count128
+\c@ALG@nested=\count129
+\ALG@tlm=\skip71
+\ALG@thistlm=\skip72
+\c@ALG@Lnr=\count130
+\c@ALG@blocknr=\count131
+\c@ALG@storecount=\count132
+\c@ALG@tmpcounter=\count133
+\ALG@tmplength=\skip73
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\subfiles\subfiles.sty
 Package: subfiles 2020/02/14 v1.6 Multi-file projects (package)
 
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\latex\import\import.sty
 Package: import 2020/04/01  v 6.2
 ))
-\c@defn=\count131
-\c@theorem=\count132
-\c@lemma=\count133
-\c@proposition=\count134
-\c@assumption=\count135
-\c@corollary=\count136
+\c@defn=\count134
+\c@theorem=\count135
+\c@lemma=\count136
+\c@proposition=\count137
+\c@assumption=\count138
+\c@corollary=\count139
+\c@claim=\count140
+\myindent=\skip74
 
 (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
 Configuring pdfsync
 \PDFSYNC@ut=\write3
 \openout3 = `main.pdfsync'.
 
-\PDFSYNCf@li@=\count137
-\PDFSYNC@rder=\count138
+\PDFSYNCf@li@=\count141
+\PDFSYNC@rder=\count142
 **** pdfsync.sty: Synchronizing at \everypar
 \PDFSYNCeveryp@r=\toks36
 **** pdfsync.sty: Synchronizing at \everymath
@@ -448,16 +463,16 @@ Configuring pdfsync
 
 (C:\Users\dhamm\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count139
+\scratchcounter=\count143
 \scratchdimen=\dimen138
 \scratchbox=\box35
-\nofMPsegments=\count140
-\nofMParguments=\count141
+\nofMPsegments=\count144
+\nofMParguments=\count145
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count142
+\MPscratchCnt=\count146
 \MPscratchDim=\dimen139
-\MPnumerator=\count143
-\makeMPintoPDFobject=\count144
+\MPnumerator=\count147
+\makeMPintoPDFobject=\count148
 \everyMPtoPDFconversion=\toks41
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -490,7 +505,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count145
+\c@lstlisting=\count149
 \AtBeginShipoutBox=\box36
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
@@ -504,12 +519,12 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+LaTeX Font Info:    Try loading font information for U+msa on input line 94.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 94.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -518,47 +533,63 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/dhamm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]) (theory.te
 x [2]
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-[3]) (pfLem.tex [4]) (alg-theory.tex) (fpt.tex) (heuristic.tex) (experiment.tex
-) (conclusion.tex) [5] (main.bbl
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
+[3]) (pfLem.tex [4] [5]) (alg-theory.tex
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 56--64
+
+LaTeX Font Warning: Command \sc invalid in math mode on input line 52.
+
+[6] [7]) (fpt.tex) (heuristic.tex) (experiment.tex) (conclusion.tex) [8]
+(main.bbl
+Underfull \hbox (badness 3977) in paragraph at lines 47--52
+[][][]\T1/cmr/m/n/10 Christopher M. Homan and Lane A. Hemas-paan-dra.  Guar-an-
+tees for the suc-cess fre-quency
+ []
+
+
+Underfull \hbox (badness 2418) in paragraph at lines 47--52
+\T1/cmr/m/n/10 of an al-go-rithm for find-ing dodgson-election win-ners.  \T1/c
+mr/m/it/10 CoRR\T1/cmr/m/n/10 , ab-s/cs/0509061, 2005.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--71
 [][][]\T1/cmr/m/n/10 Thomas Lukasiewicz and En-rico Mal-izia.  A novel char-ac-
 ter-i-za-tion of the com-plex-ity
  []
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 56--64
+Underfull \hbox (badness 7944) in paragraph at lines 63--71
 \T1/cmr/m/n/10 class thetakp based on count-ing and com-par-i-son.  \T1/cmr/m/i
 t/10 The-o-ret-i-cal Com-puter Sci-ence\T1/cmr/m/n/10 , 694:
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 56--64
+Underfull \hbox (badness 4531) in paragraph at lines 63--71
 \T1/cmr/m/n/10 21 -- 33, 2017.  ISSN 0304-3975.  doi: https://doi.org/10.1016/j
 .tcs.2017.06.023.  URL
  []
 
-) [6] (appendix.tex) (main.aux) ) 
+) [9] (appendix.tex) (main.aux) ) 
 Here is how much of TeX's memory you used:
- 10289 strings out of 492973
- 167372 string characters out of 3135933
- 237640 words of memory out of 3000000
- 13925 multiletter control sequences out of 15000+200000
- 22419 words of font info for 61 fonts, out of 3000000 for 9000
+ 10759 strings out of 492973
+ 174720 string characters out of 3135933
+ 249147 words of memory out of 3000000
+ 14390 multiletter control sequences out of 15000+200000
+ 23045 words of font info for 63 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,19n,43p,255b,456s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,23n,43p,274b,579s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\dhamm\AppData\Local\MiKTeX\2.9\font
 s\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\dhamm\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\dhamm\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Users\dhamm
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Users\dhamm\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\dhamm
 \AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\U
 sers\dhamm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200
 .pk> <C:\Users\dhamm\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
@@ -569,19 +600,21 @@ ts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\dhamm\AppData\Local\MiKT
 eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 243005 bytes).
+public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+sy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (9 pages, 288874 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
+ 471 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

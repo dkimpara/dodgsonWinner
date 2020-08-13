@@ -1,1 +1,171 @@
-\section{Practical Greedy Algorithm}
+\section{Practical Greedy Algorithm}\label{subsec:greedy}
+
+In this section we present the \gwin ~algorithm
+which runs in polynomial time and is self-knowingly
+correct with high probability when the number of
+voters is superquadratic in the number of candidates
+\citep{heuristic}.
+This probability is over a uniform random draw of each
+vote i.e. $m!$ possibilities for each vote.
+
+First we need to define what self-knowingly correct is.
+\begin{defn}
+	For sets $S$ and $T$ and function $f: S \rightarrow T$,
+	an algorithm $\mathcal{A}: S \rightarrow T \times
+	\{\text{``definitely''}, \text{``maybe''}\}$ is
+	self-knowingly correct for all $f$ if, for all $s \in S$
+	and $t \in T$ whenever $\mathcal{A}$ on input $s$ outputs
+	$(t, \text{``definitely''})$ it holds that $f(s) = t$.
+\end{defn}
+
+The main theorems are as follows:
+
+\begin{theorem}
+	\begin{enumerate}
+		\item \gscore is self-knowingly correct for $Score$.
+		\item \gwin is self-knowingly correct for \dwin.
+		\item \gscore and \gwin both run in polynomial time.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	\begin{enumerate}
+		\item \gscore is self-knowingly correct for $Score$.
+		\item \gwin is self-knowingly correct for \dwin.
+		\item \gscore and \gwin both run in polynomial time.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+	For each $m,n \in \mathbb{N}^+$, the following hold.
+	Let $C = \{1, \dots, m\}, \norm{V} = n$
+	\begin{enumerate}
+		\item For each $c \in C$,
+		\[\Pr[\gscore(\dtriple) \neq
+		(Score(\dtriple), \text{``definitely''})] < 2(m-1)
+		e^{\frac{-n}{8m^2}},\]
+		where the probability is taken over
+		drawing uniformly at random an $m$-candidate, $n$-voter
+		Dodgson election (i.e. all $(m!)^n$ Dodgson elections having
+		$m$ candidates and $n$ voters are equally likely to be chosen).
+		\item \[\Pr[ \exists c \in C | \gwin(\dtriple) \neq
+		(\dwin(\dtriple), \text{``definitely''})] <
+		2(m^2-m) e^{\frac{-n}{8m^2}},\]
+		where the probability is taken over
+		drawing uniformly at random an $m$-candidate, $n$-voter
+		Dodgson election.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	First we need to establish under what conditions \gscore is
+	self-knowingly correct.
+	\begin{claim}
+		For each $c \in C$, if for all $d \in C \setminus \{c\}$ it holds
+	that
+
+	\begin{align}
+	    \norm{\{i \in [n] | c <_{v_i} d\}} &\leq \frac{2mn+n}{4m}, \text{ and}
+		\label{c11}\\
+	    \norm{\{i \in [n] | c \prec_{v_i} d\}} &\geq \frac{3n}{4m}
+		\label{c12}
+	\end{align}
+	then $\gscore(\dtriple) = (Score(\dtriple), \text{``definitely''})$.
+
+	\end{claim}
+	\begin{claimproof}
+		$\frac{2mn+n}{4m} = \frac{n}{2} + \frac{n}{4m}$ so if (\ref{c11})
+		holds then either $c$ beats $d$ and we are done. Otherwise,
+		$d$ beats $c$ and flipping
+		$\frac{n}{4m}$ votes where $c \prec d$ to $d \prec c$
+		would ensure that $c$ beats $d$.
+		If (\ref{c12}) holds then there are strictly more than
+		$\frac{n}{4m}$ flippable votes so \gscore will be able to make enough
+		swaps to ensure that $c$ beats $d$.
+	\end{claimproof}
+
+	Now we need to show what is the probability that these conditions
+	are not met among all the possible pairs $c,d \in C, c\neq d$.
+	\begin{claim}
+		For each $c,d \in C$ such that $ c\neq d$,
+		\[\Pr[(\norm{\{i \in [n] | c <_{v_i} d\}} >
+		\frac{2mn+n}{4m}) \vee
+		(\{i \in [n] | c \prec_{v_i} d\} < \frac{3n}{4m})] <
+		2 e^{\frac{-n}{8m^2}}.\]
+
+		Where the probability is taken over
+		drawing uniformly at random an $m$-candidate, $n$-voter
+		Dodgson election.
+	\end{claim}
+	\begin{pfsketch}
+
+	\end{pfsketch}
+
+\end{proof}
+
+\begin{algorithm}
+	\begin{algorithmic}
+		\caption{\gscore} \label{alg:gscore}
+		\State \textbf{Input:} A Dodgson triple $\dtriple$.
+		\State
+		\For{$d \in C \setminus \{c\}$}
+			\State $Deficit[d] \leftarrow 0$
+			\State $Swaps[d] \leftarrow 0$
+		\EndFor
+
+		\For{each vote $v \in V$}
+			\State $i \leftarrow 1$
+				\While{$v[i] \neq c$}
+					\State $d \leftarrow v[i]$
+					\State $Deficit[d] \leftarrow Deficit[d]-1$
+					\State $i \leftarrow i+1$
+				\EndWhile
+				\If{$ i < length(v)$}
+					\State $d \leftarrow v[i+1]$
+					\State $Swaps[d] \leftarrow Swaps[d]+1$
+				\EndIf
+				\For{$i \leftarrow i + 1$ to $length(v)$ }
+					\State $d \leftarrow v[i]$
+					\State $Deficit[d] \leftarrow Deficit[d]+1$
+
+
+				\EndFor
+		\EndFor
+		\State $confidence \leftarrow$ ``definitely''
+		\State $score \leftarrow 0$
+		\For{$d \in C \setminus \{c\}$}
+			\If{$Deficit[d]\geq 0$}
+				\State $score \leftarrow score +
+				\floor{Deficit[d]/2} + 1$
+				\If{$Deficit[d] \geq 2 \cdot Swaps[d]$}
+					\State $confidence \leftarrow$ ``maybe''
+					\State $score \leftarrow score + 1$
+				\EndIf
+			\EndIf
+		\EndFor
+		\State \textbf{Output:} $(score,~confidence)$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\begin{algorithmic}
+	\caption{\gwin} \label{alg:gwin}
+	\State \textbf{Input:} A Dodgson triple $\dtriple$ where
+	we want to test whether $c$ is a Dodgson winner in the
+	election.
+	\State
+	\State $(cscore,~confidence) \leftarrow \gscore(\dtriple)$
+	\State $winner \leftarrow $ ``yes''
+	\For{$d \in C \setminus\{c\}$}
+		\State $(dscore,~confidence) \leftarrow
+		\gscore(\langle C,d,V \rangle)$
+		\If{$dscore < cscore$}
+			\State $winner \leftarrow$ ``no''
+		\If{$dcon = $ ``maybe''}
+			\State $Confidence \leftarrow$ ``maybe''
+		\EndIf
+		\EndIf
+	\EndFor
+	\State \textbf{Output:} $(winner,~confidence)$
+\end{algorithmic}
+\end{algorithm}

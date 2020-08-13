@@ -5,7 +5,7 @@
 %    \tab \textbf{Decide:}
 %\end{problem}
 
-\begin{claimproof}{Lemma \ref{lem:red1} or
+\begin{proof}{Lemma \ref{lem:red1} or
                     \algprobm{3DM} $\mred$ \algprobm{DodgsonScore}}\\
     Our reduction differs from \citet{bartholdiVoting}
     in that our reduction has additional properties that are required
@@ -17,14 +17,14 @@
     X \times Y$ and $W,X,Y$ are disjoint, nonempty sets having the
     same number of elements.\\
     \tab \textbf{Decide:} Does $M$ contain a matching, i.e. a subset
-    $M' \subseteq M$ such that $\mathnormal{M'} = \mathnormal{W}$
+    $M' \subseteq M$ such that $\norm{M'} = \norm{W}$
     and no two elements of $M'$ agree in any coordinate?
 \end{problem}
 
 
-\end{claimproof}
+\end{proof}
 
-\begin{claimproof}{Lemma \ref{lem:2er}}\\
+\begin{proof}{Lemma \ref{lem:2er}}\\
     We will reduce from \csat to \algprobm{2ER}.
     Let $\langle A,B \rangle$ be a \csat instance.
 
@@ -35,6 +35,9 @@
     \algprobm{Comp-3DM}, $\langle A', B' \rangle$.
     It is easy to see that solving $\langle A', B' \rangle$
     solves $\langle A, B \rangle$.
+    One can also see that \algprobm{Comp-3DM} is \tp-complete
+    because it shares the structure where two lists of \np-hard
+    problems are compared.
 
     Now we perform a similar reduction from \algprobm{Comp-3DM}
     to \algprobm{Comp-DodgsonScore}.
@@ -44,19 +47,27 @@
     to $A''$ or $B''$ if $x'\in A'$ or $x' \in B'$, respectively.
     It is similarly easy to see that solving $\langle A'', B'' \rangle$
     solves $\langle A', B' \rangle$.
-    If $x' \in$ \algprobm{Comp-3DM} then by Lemma \ref{lem:red1}
-    $Score(\dtriple) = k$ and thus \dscore on $\dtriple$ returns yes.
-    If $x' \notin$ \algprobm{Comp-3DM} then
-    $Score(\dtriple) = k+1$ and \dscore on $\dtriple$ returns no.
+    If $x'$ is a yes-instance of \algprobm{3DM} then by
+    Lemma \ref{lem:red1},
+    \[Score(f(x')) = Score(x'') = Score(\dtriple) = k\]
+    where $f$ is the function described in Lemma \ref{lem:red1}.
+    Thus $\dtriple$ is also
+    a yes-instance of \dscore.
+    If $x'$ is a no-instance of \algprobm{3DM} then
+    $Score(\dtriple) = k+1$ and the corresponding triple
+    $\dtriple$ is a no-instance of \dscore.
 
     Now we reduce from \algprobm{Comp-DodgsonScore} to \algprobm{2ER}
     using Lemma \ref{lem:merge1}.
     First note that the direction of the inequality of the decision problem
     changes in this reduction by the nature of Lemma \ref{lem:red1}.
     Now to begin the reduction, we merge all the Dodgson elections
-    in $A'', B''$ into $\langle C,c,V \rangle$ and $\langle D,d,W \rangle$,
+    in $A''$ and $B''$ into $\langle C,c,V \rangle$ and $\langle D,d,W \rangle$,
     respectively.
-    This is done using the $DodgsonSum$ function in \ref{lem:merge1}.
+    This is done using the $DodgsonSum$ function in Lemma \ref{lem:merge1},
+    which we can use because Lemma \ref{lem:red1} ensures that conditions of
+    the Lemma are met by each election.
+
     For example if $A'' = \dtripnum{1},\dtripnum{2}, \dots, \dtripnum{k}$
     then
 
@@ -68,14 +79,32 @@
     \[\sum_j Score(\dtripnum{j}) =
     Score(\dtriple).\]
 
-    Now $\langle A'', B'' \rangle$ being true is equivalent to
+    Now $\langle A'', B'' \rangle$ is a yes-instance of
+    \algprobm{Comp-DodgsonScore} if by definition,
     the number of satisfied \dscore instances in $A''$ being greater than
     that of $B''$.
     This again is equivalent to the sum of the Dodgson
-    scores of $A''$ being less than that of $B''$.
-    Thus using the reduction of $\langle A'', B'' \rangle$ outlined above,
-    If $Score(\langle C,c,V \rangle)\leq Score(\langle D,d,W \rangle)$ is true,
-    then $\langle A'', B'' \rangle$ is true and similarly for the false case.
+    scores of $A''$ being less than that of $B''$ since we fix
+    $k$ to be the same for each of the reductions using Lemma \ref{lem:red1}.
+    Let $\norm{A}_{yes}$ be the number of yes-instances in a set of decision
+    problems $A$.
+    Using the reduction of $\langle A'', B'' \rangle$ outlined above,
+
+    \begin{align}
+        &\langle A'', B'' \rangle \text{ is a yes-instance of
+    \algprobm{Comp-DodgsonScore}}\nonumber\\
+        &\iff \norm{A''}_{yes} \geq \norm{B''}_{yes} \nonumber \\
+        &\iff \norm{\{x\in A'' | Score(x) \leq k\}} \geq
+              \norm{\{x\in B'' | Score(x) \leq k\}} \nonumber\\
+        &\iff Score(\langle C,c,V \rangle)\leq
+        Score(\langle D,d,W \rangle) \label{eqRED} \\
+        &\iff \langle \langle C,c,V \rangle, \langle D,d,W \rangle \rangle
+        \text{ is a yes-instance of \algprobm{2ER}} \nonumber
+    \end{align}
+
+    For line (\ref{eqRED}), note that by the reduction used from
+    Lemma \ref{lem:red1}, the elections in
+    $\langle A'',B'' \rangle$ can have score of either $k$ or $k+1$.
     Hence we have shown a reduction from \algprobm{Comp-DodgsonScore} to
     \algprobm{2ER}.
 
@@ -87,12 +116,53 @@
 
     So by Theorem \ref{thm:csat}, \algprobm{2ER} is \tp-hard and the
     Lemma is proved.
-\end{claimproof}
+\end{proof}
 
 \subsection{Proof that \algprobm{DodgsonWinner} is \tp-complete.}
-\begin{claimproof}{Theorem \ref{thm:dwin}}\\
+\begin{proof}{Theorem \ref{thm:dwin}}\\
     By Theorem \ref{thm:intp}, \dwin $\in$ \tp.
-    We now show that \algprobm{2ER} $\mred$ \dwin.
+    We now show that \algprobm{2ER} $\mred$ \dwin and so
+    by Lemma \ref{lem:2er}, the theorem then follows.
 
+    We now describe a polynomial time function $f$ for this reduction.
+    Let $s_o$ be some fixed string that is not in \dwin.
+    Then
 
-\end{claimproof}
+    \[
+      f(x) =
+      \begin{cases}
+          Merge(x_1,x_2) & \text{if $x \in$ \algprobm{2ER}}  \\
+          s_o & \text{if $x \notin$ \algprobm{2ER}}
+      \end{cases}
+    \]
+
+    Where $Merge$ is the function defined in Lemma \ref{lem:merge2} and
+    $x_1$ and $x_2$ are the two elections in the instance of \algprobm{2ER}.
+    So $f(x)$ is an instance of \dwin if and only if $x$ is an instance of
+    \algprobm{2ER}.
+
+    Now we show how $Merge(x_1,x_2)$, an instance of \dwin, solves the
+    corresponding instance $x$ of \algprobm{2ER}.
+    Let $x$ be a pair of Dodgson triples, $\dtriple$ and
+    $\langle D,d,w \rangle$, where both have an odd number of voters
+    and $d \neq c$ (so we can apply the Lemma).
+    Then let $Merge(\langle C,c,V \rangle, \langle D,d,W \rangle) =
+    \htrip{c}$ be the corresponding instance of \dwin.
+
+    First assume that $Score(\langle C,c,V \rangle)\leq Score(\langle D,d,W \rangle)$, or the
+    answer to the \algprobm{2ER} decision problem is yes.
+    Then by Lemma \ref{lem:merge2}, properties 3 and 4,
+    $Score(\htrip{c}) \leq Score(\htrip{d})$.
+    By property 5, $Score(\htrip{c}) \leq Score(\htrip{e})$ for all
+    $e \in \hat{C}\setminus \{c,d\}$.
+    Hence $c$ is a Dodgson winner of the election and the answer
+    to the decision problem of this instance of \dwin is yes.
+
+    Finally, assume that $Score(\langle C,c,V \rangle)> Score(\langle D,d,W \rangle)$, or the
+    answer to the \algprobm{2ER} decision problem is no.
+    Then similarly, $Score(\htrip{c}) > Score(\htrip{d})$ and
+    so $c$ is not a Dodgson winner of the election.
+    Hence the answer to the decision problem of this instance of \dwin is
+    no.
+
+\end{proof}
