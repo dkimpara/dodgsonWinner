@@ -1,4 +1,4 @@
-\section{The complexity of the Dodgson Winner Problem}
+\section{The Complexity of the Dodgson Winner Problem}
 Our results largely follow the proof in \citet{exactdodgson}, except instead of
 using a technical lemma by \citet{wag90}, we instead begin the reduction
 with the recent result that \algprobm{Comp-SAT} is \tp-complete \citep{compsat}.
@@ -21,20 +21,26 @@ it cannot be \np-complete unless the polynomial hierarchy collapses.
     If \algprobm{DodgsonWinner} is \np-complete then \cc{PH} = \np.
 \end{corollary}
 
-\subsection{Outline of Proof of Theorem \ref{thm:dwin}}
+\subsection{Outline of Proof of Theorem \ref{thm:dwin}} \label{subsec:outline}
     First we briefly outline the reduction from Comp-SAT to
 DodgsonWinner.
-Let us start with a \csat instance $\langle A,B \rangle$, for each 3CNF
+    All of the following reductions are many-one reductions.
+Let us start with a \csat instance $\langle A,B \rangle$.
+For each 3CNF
 formula $x$ in $A$ and $B$, reduce $x$ into the corresponding instance of
 \algprobm{ThreeDimensionalMatching} (\algprobm{3DM}), which is possible because
 \algprobm{3DM} is \np-complete.
 Now, for each \algprobm{3DM} problem, we reduce it into an instance of
 \dscore.
-Using a merger lemma, we will merge these into two elections, one for $A$
-and one for $B$, thus an instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
+Using a merger lemma, we will merge these two sets of
+\dscore instances into two elections, one for $A$
+and one for $B$, thus an yielding
+instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
 Then \algprobm{2ER} will be reduced to DodgsonWinner.
 For the formal proof we will use the problems \algprobm{Comp-3DM} and
 \algprobm{Comp-DodgsonScore} which are similar to \csat.
+Alternatively, one could replace some of these reductions with
+polynomial time truth-table reductions.
 
 A reference diagram is provided:
 
@@ -42,15 +48,15 @@ A reference diagram is provided:
 \text{\algprobm{Comp-DodgsonScore}} \mred
 \text{\algprobm{2ER}} \mred \text{\algprobm{DodgsonWinner}}\]
 
-Now we need to show membership in \tp.
+Once the reduction above is proved, it remains to show membership in \tp in order
+to prove Theorem \ref{thm:dwin}.
 \begin{theorem} \label{thm:intp}
     \algprobm{DodgsonWinner} $\in$ \tp. \\
 \end{theorem}
-
 \begin{proof}
     Ask in parallel all the \algprobm{DodgsonScore} queries,
     one for each candidate in $C$.
-    Each query is an \np query since \algprobm{DodgsonScore} is \np-complete by
+    Each query is an \np~query since \algprobm{DodgsonScore} is \np-complete by
     the second reduction outlined above (lemma \ref{lem:red1}).
     We now have the exact Dodgson Score for each candidate.
     It is easy to decide
@@ -59,7 +65,19 @@ Now we need to show membership in \tp.
     the max $\sim\mathcal{O}(n)$).
 \end{proof}
 
+The rest of the section will be devoted to proving the reduction outlined above.
+
 \subsection{Outline of relevant lemmas}
+
+In order to prove the reduction outlined in section \ref{subsec:outline},
+we first state the necessary lemmas.
+Proofs of the non-technical lemmas will be provided in section \ref{subsec:pflem}.
+What these lemmas provide are ways to add election scores, and how to merge elections.
+The main part of the reduction is reducing from \csat to \algprobm{2ER}
+from which a merger lemma is needed to reduce to \dwin.
+
+The first part of the reduction is performed by the following lemma which
+reduces 
 
 \begin{lemma} \label{lem:red1}
     There exists an \np-complete problem $A$ and a polynomial-time

@@ -25,10 +25,10 @@
 \newcommand{\cc}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\algprobm}[1]{{\sc #1}\xspace}
 
-\newcommand{\tp}{$\Theta^{p}_2$}
+\newcommand{\tp}{$\Theta^{P}_2$}
 \newcommand{\np}{\cc{NP}}
-\newcommand{\sig}[2]{\cc{\Sigma^{#1}_{#2}}}
-\newcommand{\pic}[2]{\cc{\Pi^{#1}_{#2}}}
+\newcommand{\sig}[2]{\Sigma^{#1}_{#2}}
+\newcommand{\pic}[2]{\Pi^{#1}_{#2}}
 \newcommand{\csat}{\algprobm{Comp-SAT}}
 \newcommand{\dscore}{\algprobm{DodgsonScore}}
 \newcommand{\dwin}{\algprobm{DodgsonWinner}}
@@ -86,9 +86,11 @@
 }
 \newcommand\eindent{\endgroup}
 
+
+\newcommand{\dk}[1]{\textcolor{red}{[DK: #1]}}
 \begin{document}
 
-\title{Dodgson Winner Problem}
+\title{The Dodgson Winner Problem}
  \author{Dhamma Kimpara}
 
 \maketitle
@@ -98,9 +100,10 @@
 \input{prelims.tex}
 \input{theory.tex}
 \input{pfLem.tex}
-\input{alg-theory.tex}
 \input{fpt.tex}
-\input{heuristic.tex}
+\input{alg-theory.tex}
+
+
 \input{experiment.tex}
 \input{conclusion.tex}
 

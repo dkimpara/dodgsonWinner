@@ -9,12 +9,14 @@
     one per voter, over all candidates in $C$.
 \end{defn}
 
-
+\begin{defn}{Preference relations} \\
+    $< \succ$
+\end{defn}
 
 \begin{defn}{Condorcet Winner}\\
     In an election, with a set of candidates $C$ and $n$ votes or strict preference
     orders $V$, a candidate $a \in C$ is a Condorcet Winner if for every other
-    candidate $b$, $a \succ b$ by strictly more than half of the voters.
+    candidate $b$, $a > b$ by strictly more than half of the voters.
 
 \end{defn}
 
@@ -42,27 +44,108 @@
 
 \end{problem}
 
-\begin{problem}{\algprobm{Comp-M}} \\
-    \tab Instance: A pair $\langle A,B \rangle$ of sets of \np-hard decision problems
-    in $M$.\\
-    \tab Decide: Is the number of yes-instances in $A$
-    greater than or equal to the number of yes-instances in $B$.
-\end{problem}
 
-\begin{problem}{\csat} \citep{compsat}\\
-    \tab Instance: A pair $\langle A,B \rangle$ of sets of 3CNF formulas.\\
-    \tab Decide: Is the number of satisfiable formulas in $A$
-    greater than or equal to the number of satisfiable formulas in $B$.
-\end{problem}
+\subsection{\tp~ in the Polynomial Hierarchy}
 
-\subsection{Complexity Classes and Definitions}
+Here we formally introduce the class \tp, for which
+we will show \dwin is complete for.
+This was the first natural ``real-world'' problem that was shown to be complete
+for this class.
+As briefly talked about in the introduction, \tp and the
+general classes $\Theta_{k}^P$ hold a particular position
+in the polynomial hierarchy.
+$\Theta_{k}^P$ however is not usually talked about in regular definitions of
+the polynomial hierarchy so we will also see in this section how they fit in.
+
+First we introduce the polynomial hierarchy (PH).
+PH generalizes the classes \np~ and \cc{coNP}.
+PH is formed by the classes $\Sigma_k^P$, $\Pi_k^P$, and $\Delta_k^P$.
+It is defined as follows: $\Sigma_0^P = \Pi_0^P = \Delta_0^P = \cc{P}$ and
+for all $k \geq 1$,
+$\Sigma_k^P = \cc{NP}^{\Sigma_{k-1}^P}$,
+$\Delta_k^P = \cc{P}^{\Sigma_{k-1}^P}$, and
+$\Pi_k^P = \cc{co-}\Sigma_{k-1}^P$.
+Note that
+$\Sigma_1^P = \cc{NP}^{\Sigma_{0}^P} = \cc{NP}^{P} = \cc{NP}$
+and $\Pi_1^P = \cc{co}{\Sigma_{0}^P} = \cc{coNP}^{P}$.
+The union of all the classes in PH is denoted \cc{PH}.
+An open problem in computer science is whether or not
+the polynomial hierarchy collapses.
+The polynomial hierarchy is said to collapse if for some $k$, $\Sigma_k^P$ or $\Pi_k^P = \cc{PH}$.
+It is strongly believed that the
+polynomial hierarchy does not collapse.
+
+\citet{PZ83} proposed that $\Theta_{k}^P = \cc{P}^{\Sigma_{k-1}^P
+[O(\log n)]}$ to be included in the standard definition of PH as well,
+where the bound in the brackets represents the bound on the allowed
+number of oracle calls to the oracle class preceding the brackets.
+Note that \citet{hem87} showed that this is equivalent to parallel
+access to $\Sigma_{k-1}^P$.
+\citet{compsat} poses that $\Theta_0^P = P$ and observe that
+$\Theta_1^P = P$.
+Also since $\Theta_{k}^P$ is a deterministic class, since the
+machine making oracle calls is deterministic.
+Thus $\Theta_{k}^P = \cc{co-}\Theta_{k}^P$.
+We state the generalized relationship of the classes in terms of
+$k$:
+
+$$\sig{P}{k} \cup \pic{P}{k} \subseteq
+    \Theta^{k+1}_2 \subseteq \Delta^{k+1}_2
+    \subseteq \sig{P}{k+1} \cap \pic{P}{k+1}$$
+
+Now our specific problem, \dwin, is complete for \tp:
 
 \begin{defn}{\tp:} \\
     The class of problems solvable with polynomial-time parallel access to an
     \np oracle.
-    This is equivalent to $\mathcal{O}(\log(n))$ sequential queries to an \np
-    oracle \citep{hem87, ksw87}.
+    This is equivalent to $\mathcal{O}(\log(n))$ sequential queries to an
+\np~oracle \citep{hem87, ksw87}.
 \end{defn}
+
+While the classes $\Sigma^P_k$ and $\Pi^P_k$ in the polynomial hierarchy
+have their complete problem as quantified boolean formulas with $k-1$
+alternations of quantifiers (\algprobm{QBF$_k$} or \algprobm{QSAT$_k$}),
+the class \tp did not yet have such a characterization by some formulation
+of \algprobm{SAT} until recently.
+The complete problem for the class \tp, with this similar flavor, is
+\csat, introduced in \citet{csatintro}.
+In the same work, a general characterization for the classes
+$\Theta_{k+1}^P$ was also proved, given by the following problem:
+
+
+\begin{problem}{\algprobm{Comp-PH$_k$}} \citep{compsat} \\
+    \tab \textbf{Instance}: Let $A_1$ and $A_2$ be either both $\Sigma_k^P$-complete
+or $\Pi_k^P$-complete problems.
+    Then let $\langle A,B \rangle$ be sets of instances of $A_1$ and
+    $A_2$, respectively.\\
+    \tab \textbf{Decide}: Is the number of yes-instances in $A$
+    greater than or equal to the number of yes-instances in $B$.
+\end{problem}
+
+\begin{theorem}\label{thm:validk} \citep{compsat}
+    \algprobm{Comp-PH$_k$} is $\Theta_{k+1}^P$-complete.
+\end{theorem}
+
+For a formulation via \algprobm{QBF$_k$}, let $A_1$ and $A_2$ be
+both the
+same appropriate \algprobm{QBF$_k$} problem that is complete for
+$\Sigma_k^P$ or $\Pi_k^P$.
+Note that \citet{compsat} state this latter problem as complete,
+calling it \algprobm{Comp-Valid$_k$}, however this result is based on Theorem
+\ref{thm:validk}.
+The completeness of this problem makes sense because
+$\Theta_{k+1}^P$ is intuitively the
+class of problems solvable with parallel oracle access to the $k$th level of
+the polynomial hierarchy.
+For the class \tp, of which \dwin is complete, the canonical problem is \csat.
+
+\begin{problem}{\csat or \algprobm{Comp-Valid$_1$}} \citep{compsat}\\
+    \tab \textbf{Instance}: A pair $\langle A,B \rangle$
+of sets of 3CNF formulas.\\
+    \tab \textbf{Decide}: Is the number of satisfiable formulas in $A$
+    greater than or equal to the number of satisfiable formulas in $B$.
+\end{problem}
+
 
 \begin{theorem}\label{thm:csat} \citep{compsat}
     \csat is \tp-complete.
