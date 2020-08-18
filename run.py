@@ -1,4 +1,4 @@
-from experimentCode import *
+from writeup.experimentCode import *
 from datetime import datetime
 import numpy as np
 

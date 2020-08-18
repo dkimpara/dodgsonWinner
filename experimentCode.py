@@ -72,7 +72,7 @@ def combine():
 
 def get_exp_path():
     script_dir = os.path.dirname(__file__)
-    rel_path = "data"
+    rel_path = "../data"
     return os.path.join(script_dir, rel_path)
 
 def lower(m):

@@ -5,13 +5,14 @@
 %    \tab \textbf{Decide:}
 %\end{problem}
 
-\begin{proof}{Lemma \ref{lem:red1} or
+\begin{pfsketch}{Lemma \ref{lem:red1} or
                     \algprobm{3DM} $\mred$ \algprobm{DodgsonScore}}\\
-    %todo:  \dscore is np-complete
-    Our reduction differs from \citet{bartholdiVoting}
-    in that our reduction has additional properties that are required
+    This reduction differs from \citet{bartholdiVoting}
+    in that this reduction has additional properties that are required
     by the lemma.
-    We will reduce from \algprobm{ThreeDimensionalMatching} to \dscore:
+    We will reduce from \algprobm{ThreeDimensionalMatching} to \dscore.
+    This reduction has many technical details so we provide only a
+    very brief sketch.
 
 \begin{problem}{\algprobm{ThreeDimensionalMatching} (\algprobm{3DM})}\\
     \tab \textbf{Input:} Sets $M,W,X,Y$, where $M\subseteq W \times
@@ -22,8 +23,14 @@
     and no two elements of $M'$ agree in any coordinate?
 \end{problem}
 
-
-\end{proof}
+    Now given an instance of \algprobm{3DM} as outlined above,
+    let $C = W \cup X \cup Y \cup \{c,s,t\}$ where $c,s,t \notin W \cup X \cup Y$.
+    Let $V$ consist of voters simulating elements of $M$ and $\norm{M}-1$ dummy
+    voters.
+    Then, $M$ containing a matching corresponds to $Score(\dtriple) = 3q$ and
+    $M$ not containing a matching corresponds to $Score(\dtriple) = 3q+1$.
+    $\square$
+\end{pfsketch}
 
 \begin{proof}{Lemma \ref{lem:2er}}\\
     We will reduce from \csat to \algprobm{2ER}.
@@ -44,7 +51,7 @@
     to \algprobm{Comp-DodgsonScore}.
     For each $x' \in A'$ or $B'$, use the function in
     Lemma \ref{lem:red1} to reduce $x'$ into the corresponding
-    \dscore instance $\dtriple$ and add $\dtriple$
+    \dscore~instance $\dtriple$ and add $\dtriple$
     to $A''$ or $B''$ if $x'\in A'$ or $x' \in B'$, respectively.
     It is similarly easy to see that solving $\langle A'', B'' \rangle$
     solves $\langle A', B' \rangle$.
@@ -82,7 +89,7 @@
 
     Now $\langle A'', B'' \rangle$ is a yes-instance of
     \algprobm{Comp-DodgsonScore} if by definition,
-    the number of satisfied \dscore instances in $A''$ being greater than
+    the number of satisfied \dscore~instances in $A''$ being greater than
     that of $B''$.
     This again is equivalent to the sum of the Dodgson
     scores of $A''$ being less than that of $B''$ since we fix
@@ -121,8 +128,8 @@
 
 \subsection{Proof that \algprobm{DodgsonWinner} is \tp-complete.}
 \begin{proof}{Theorem \ref{thm:dwin}}\\
-    By Theorem \ref{thm:intp}, \dwin $\in$ \tp.
-    We now show that \algprobm{2ER} $\mred$ \dwin and so
+    By Theorem \ref{thm:intp}, \dwin~$\in$ \tp.
+    We now show that \algprobm{2ER} $\mred$ \dwin~and so
     by Lemma \ref{lem:2er}, the theorem then follows.
 
     We now describe a polynomial time function $f$ for this reduction.
@@ -139,7 +146,7 @@
 
     Where $Merge$ is the function defined in Lemma \ref{lem:merge2} and
     $x_1$ and $x_2$ are the two elections in the instance of \algprobm{2ER}.
-    So $f(x)$ is an instance of \dwin if and only if $x$ is an instance of
+    So $f(x)$ is an instance of \dwin~if and only if $x$ is an instance of
     \algprobm{2ER}.
 
     Now we show how $Merge(x_1,x_2)$, an instance of \dwin, solves the
@@ -157,13 +164,13 @@
     By property 5, $Score(\htrip{c}) \leq Score(\htrip{e})$ for all
     $e \in \hat{C}\setminus \{c,d\}$.
     Hence $c$ is a Dodgson winner of the election and the answer
-    to the decision problem of this instance of \dwin is yes.
+    to the decision problem of this instance of \dwin~is yes.
 
     Finally, assume that $Score(\langle C,c,V \rangle)> Score(\langle D,d,W \rangle)$, or the
     answer to the \algprobm{2ER} decision problem is no.
     Then similarly, $Score(\htrip{c}) > Score(\htrip{d})$ and
     so $c$ is not a Dodgson winner of the election.
-    Hence the answer to the decision problem of this instance of \dwin is
+    Hence the answer to the decision problem of this instance of \dwin~is
     no.
 
 \end{proof}

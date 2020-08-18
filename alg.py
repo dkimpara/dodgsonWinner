@@ -1,4 +1,3 @@
-#algorithm for heuristic GreedyScore
 from math import floor
 
 def greedy_score(C: list, c: int, V: list) -> tuple:
@@ -11,7 +10,6 @@ def greedy_score(C: list, c: int, V: list) -> tuple:
     for d in C_minus_c: #initialize counter variables
         deficit[d] = 0
         swaps[d] = 0
-    
     for v in V:
         i = 0
         while v[i] != c:
@@ -36,7 +34,6 @@ def greedy_score(C: list, c: int, V: list) -> tuple:
             if deficit[d] >= 2 * swaps[d]:
                 confident = False
                 score += 1
-
     return (score, confident)
 
 def greedy_winner(C: list, c: int, V: list) -> tuple:

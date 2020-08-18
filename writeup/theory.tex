@@ -33,7 +33,7 @@ formula $x$ in $A$ and $B$, reduce $x$ into the corresponding instance of
 Now, for each \algprobm{3DM} problem, we reduce it into an instance of
 \dscore.
 Using a merger lemma, we will merge these two sets of
-\dscore instances into two elections, one for $A$
+\dscore~instances into two elections, one for $A$
 and one for $B$, thus an yielding
 instance of \algprobm{2ElectionRanking} (\algprobm{2ER}).
 Then \algprobm{2ER} will be reduced to DodgsonWinner.
@@ -48,7 +48,13 @@ A reference diagram is provided:
 \text{\algprobm{Comp-DodgsonScore}} \mred
 \text{\algprobm{2ER}} \mred \text{\algprobm{DodgsonWinner}}\]
 
-Once the reduction above is proved, it remains to show membership in \tp in order
+This reduction can be further truncated by using Theorem 1 after showing
+that \dscore~ is \np-complete.
+We would be immediately be able to establish that \algprobm{Comp-DodgsonScore}
+is \tp-hard.
+However we leave in the other steps to reduce from a candidate for a canonical
+problem for the class \tp.
+Once the reduction above is proved, it remains to show membership in \tp~in order
 to prove Theorem \ref{thm:dwin}.
 \begin{theorem} \label{thm:intp}
     \algprobm{DodgsonWinner} $\in$ \tp. \\
@@ -57,11 +63,14 @@ to prove Theorem \ref{thm:dwin}.
     Ask in parallel all the \algprobm{DodgsonScore} queries,
     one for each candidate in $C$.
     Each query is an \np~query since \algprobm{DodgsonScore} is \np-complete by
-    the second reduction outlined above (lemma \ref{lem:red1}).
-    We now have the exact Dodgson Score for each candidate.
+    the second reduction outlined above (lemma \ref{lem:red1}) and observing
+    that given a yes-answer, it can be justified in polynomial time by
+    identifying appropriate switches and tabulating the vote.
+    We now have the exact Dodgson Score for each candidate (do binary search
+    over the potential scores, which is polynomial in the input size).
     It is easy to decide
-    whether or not the given candidate $c$ ties-or-defeats all other candidates in
-    the election (find the max of the scores and compare the $c$'s score to
+    whether or not the given candidate $c$ has the minimum score
+    (find the max of the scores and compare the $c$'s score to
     the max $\sim\mathcal{O}(n)$).
 \end{proof}
 
@@ -76,15 +85,14 @@ What these lemmas provide are ways to add election scores, and how to merge elec
 The main part of the reduction is reducing from \csat to \algprobm{2ER}
 from which a merger lemma is needed to reduce to \dwin.
 
-The first part of the reduction is performed by the following lemma which
-reduces 
+The first part of the reduction is performed by the following lemma.
 
 \begin{lemma} \label{lem:red1}
     There exists an \np-complete problem $A$ and a polynomial-time
-    computable function $f$ that reduces $A$ to \dscore in such
+    computable function $f$ that reduces $A$ to \dscore~in such
     a way that, $\forall x \in \Sigma^*,
     f(x) = \langle \langle C,c,V \rangle, k\rangle $
-    is an instance of \dscore with an odd number of voters and
+    is an instance of \dscore~with an odd number of voters and
     \begin{enumerate}
         \item if $x\in A$ then $Score(\dtriple) = k$, and
         \item if $x\notin A$ then $Score(\dtriple) = k+1$.
