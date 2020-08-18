@@ -63,6 +63,17 @@ def write_dataframe(data, experiment_name):
     df =pd.read_pickle("./dummy.pkl")
     '''
 
+def combine():
+    abs_folder_path = get_exp_path()
+    frames = []
+    for filename in os.listdir(abs_folder_path):
+        frames.append(pd.read_pickle("data/" + filename))
+    return pd.concat(frames)
+
+def get_exp_path():
+    script_dir = os.path.dirname(__file__)
+    rel_path = "data"
+    return os.path.join(script_dir, rel_path)
 
 def lower(m):
     #returns number of voters that makes probability less than 1

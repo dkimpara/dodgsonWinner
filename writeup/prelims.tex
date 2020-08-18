@@ -2,25 +2,45 @@
 
 \subsection{Problem Setting}
 
-\begin{defn}{Dodgson Triple}\\
+We formally introduce the Dodgson Winner problem, or the decision problem
+of checking whether a particular candidate is a Dodgson winner in a
+Dodgson election.
+First, we formally define a Dodgson Election, or an instance of \dwin, which we
+will define later.
+
+\begin{defn}{Dodgson Triple.}\\
     A triple, $\langle C, c, V \rangle$, where $C$ is the set of candidates
     $1, \dots , m$, a candidate $c \in C$, and a set of $n$ strict
     (ie. irreflexive and anti-symmetric) preference orders,
     one per voter, over all candidates in $C$.
 \end{defn}
 
-\begin{defn}{Preference relations} \\
-    $< \succ$
+\begin{defn}{Preference relation.} \\
+    For vote $v$ and candidates $c,d \in C$, $c<_{v}d$ means that in vote
+$v$, $d$ is preferred to $c$ and $c\prec_v d$ means that $c<_v d$ and
+$\nexists e ~ \in C ~ s.t. ~ c <_v e <_v d$.
 \end{defn}
 
-\begin{defn}{Condorcet Winner}\\
+A natural criterion for the winner of an election
+is the concept of a Condorcet Winner.
+This concept is used in other election systems such as Young's election, which
+is related to Dodgson's system.
+
+\begin{defn}{Condorcet Winner} \citep{condorcet1785essay}.\\
     In an election, with a set of candidates $C$ and $n$ votes or strict preference
     orders $V$, a candidate $a \in C$ is a Condorcet Winner if for every other
     candidate $b$, $a > b$ by strictly more than half of the voters.
-
 \end{defn}
 
-\begin{defn}{Dodgson Score}\label{def:dscore}\\
+However, many elections will not have a Condorcet winner, so Dodgson's idea
+was that whichever candidate was the ``closest'' to being a Cordorcet winner
+should be the winner.
+It is also possible to have multiple winners, all with equal scores (closeness)
+in this system.
+A candidates closeness to being a Cordorcet winner is defined as the Dodgson Score
+of that candidate.
+
+\begin{defn}{Dodgson Score.}\label{def:dscore}\\
     First define a switch as an exchange of two adjacent preferences in the
     preference order of one voter.
     Then, the Dodgson Score of a candidate is the smallest number of sequential
@@ -30,14 +50,25 @@
     We denote the Dodgson score of a Dodgson triple as $Score(\dtriple)$
 \end{defn}
 
-\begin{problem}{\algprobm{DodgsonScore}} \\
+This notion of ``closeness'' is based on finding the minimum edit distance
+between the initial votes and a region in the space of all votes.
+The edits are sequential and defined as adjacent exchanges in the preference orders.
+The candidates with the minimum Dodgson Scores are the winners of the
+Dodgson election.
+
+We now define the formal decision problems with which we will examine from a
+theory of computation lens.
+The first problem, \dscore, will be used to show that the main problem,
+\dwin, is \tp-complete.
+
+\begin{problem}{\algprobm{DodgsonScore}.} \\
     \tab \textbf{Instance:} $k \in \mathbb{N}$.
         A Dodgson Election and Candidate $\langle C,c,V \rangle$. \\
     \tab \textbf{Decide:} Is the Dodgson Score of candidate $c$ less than or
         equal to $k$?
 \end{problem}
 
-\begin{problem}{\algprobm{DodgsonWinner}} \\
+\begin{problem}{\algprobm{DodgsonWinner}.} \\
     \tab Instance: A Dodgson Election and Candidate $\langle C,c,V \rangle$ \\
     \tab Decide: Is $c$ a winner of the election?
     In other words, does $c$ have the minimum Dodgson Score in the election?
@@ -45,7 +76,7 @@
 \end{problem}
 
 
-\subsection{\tp~ in the Polynomial Hierarchy}
+\subsection{\tp~in the Polynomial Hierarchy}
 
 Here we formally introduce the class \tp, for which
 we will show \dwin is complete for.

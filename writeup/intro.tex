@@ -15,7 +15,7 @@ in the zoo!
 This was the case for the class \tp in the mid-1990s.
 \tp or \cc{P}$^{\np}_{\parallel}$, the class of
 languages decidable by a polynomial time Turing machine with parallel access to
-\np, was introduced in 1983 by \citep{PZ83}.
+\np, was introduced in 1983 by \citet{PZ83}.
 The location of this class in the polynomial hierarchy is:
 
 
@@ -28,25 +28,25 @@ The location of this class in the polynomial hierarchy is:
 
 
 By the mid 1990s, the theoretical importance of \tp was recognized in complexity theory.
-Klaus W. Wagner established half a dozen characterizations of \tp \citep{wag90},
-several complete problems and a toolkit for establishing \tp-hardness.
+Klaus W. Wagner established half a dozen characterizations of \tp,
+several complete problems and a toolkit for establishing \tp-hardness \citep{wag90}.
 \citet{hem87} and \citet{ksw87} showed that \tp was equivalent to the class of
 problems that can be solved by $\mathcal{O}(\log(n))$ sequential Turing queries to \np.
 Furthermore, if \np~contains some \tp-hard problem, then the polynomial hierarchy
 collapses to \np.
 However, these connections and complete problems
 lived in the pure theory section of the zoo and did not yet have the appeal of
-problems from ``real world" settings.
+problems from ``real world'' settings.
 
 Along came the Dodgson winner problem, invented in 1876 by Charles Lutwidge
 Dodgson, better known under the pen name of Lewis Carroll.
 \citet{exactdodgson} proved that this problem was \tp-complete.
-This was the first ``real-world" problem proven complete for the class \tp.
+This was the first ``real-world'' problem proven complete for the class \tp.
 
 Dodgson's election system takes the following form.
 An election is a finite number of voters, who each cast a linear order
 over a common finite set of candidates.
-Note that linear orders are ``tie-free".
+Note that linear orders are ``tie-free''.
 The winner is determined by whichever candidate is closest to being a Cordorcet
 winner, a criteria used by other election systems.
 A Condorcet winner is a candidate $a$ who for every other candidate $b$, is
@@ -70,8 +70,6 @@ problems in this class such as determining if the maximum size clique in a
 graph is of odd size (odd-max-clique).
 In this project we will use \algprobm{Comp-SAT},
 which was recently shown to be complete for this class \citep{compsat}.
-
-%todo: talk about FPT, dynamic prog, approx algs and alternate voting rules
 
 The rest of this project presents the theory of and a practical algorithm for
 the Dodgson winner problem.

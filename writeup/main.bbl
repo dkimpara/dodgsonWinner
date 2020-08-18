@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,6 +25,12 @@ Felix Brandt, Vincent Conitzer, Ulle Endriss, J{\'e}r{\^o}me Lang, and Ariel~D
 \newblock \emph{Handbook of computational social choice}.
 \newblock Cambridge University Press, 2016.
 
+\bibitem[Condorcet and de~Caritat(1785)]{condorcet1785essay}
+Marquis~de Condorcet and MJAN de~Caritat.
+\newblock An essay on the application of analysis to the probability of
+  decisions rendered by a plurality of votes.
+\newblock \emph{Classics of social choice}, pages 91--112, 1785.
+
 \bibitem[Hemachandra(1987)]{hem87}
 L.~A. Hemachandra.
 \newblock The strong exponential hierarchy collapses.
@@ -42,6 +48,12 @@ Edith Hemaspaandra, Lane~A. Hemaspaandra, and J{\"{o}}rg Rothe.
   system is complete for parallel access to {NP}.
 \newblock \emph{CoRR}, cs.CC/9907036, 1999.
 \newblock URL \url{https://arxiv.org/abs/cs/9907036}.
+
+\bibitem[Hemaspaandra and Williams(2012)]{heuristic2012}
+Lane~A. Hemaspaandra and Ryan Williams.
+\newblock An atypical survey of typical-case heuristic algorithms.
+\newblock \emph{CoRR}, abs/1210.8099, 2012.
+\newblock URL \url{http://arxiv.org/abs/1210.8099}.
 
 \bibitem[Homan and Hemaspaandra(2005)]{heuristic}
 Christopher~M. Homan and Lane~A. Hemaspaandra.
